@@ -3,6 +3,7 @@
 //  OpenGL4Test
 //
 //  Created by Rafael Radkowski on 5/28/15.
+// With modifications (damage) by Michael Hoefer for ME 557 class
 //  Copyright (c) 2015 -. All rights reserved.
 //
 
@@ -100,8 +101,8 @@ unsigned int createTriangleStripModel(void)
     
     //TODO:
 
-	float* vertices = new float[100];
-	float *colors = new float[100];
+	float* vertices = new float[110];
+	float *colors = new float[110];
 	// Back tall face
 	vertices[0] = 0.0; vertices[1] = 0.0; vertices[2] = 0.0; // origin
 	colors[0] = 0.0; colors[1] = 0.0; colors[2] = 1.0; // Top left corner
@@ -166,32 +167,57 @@ unsigned int createTriangleStripModel(void)
 
 	//new triangle fan
 	vertices[57] = 0.0; vertices[58] = 2.0; vertices[59] = 0.0; // Top left  corner
-	colors[57] = 0.0; colors[58] = 0.8; colors[59] = 0.5; // Top left corner
+	colors[57] = 0.0; colors[58] = 0.0; colors[59] = 1.0; // Top left corner
 
 	vertices[60] = 1.0; vertices[61] = 2.0; vertices[62] = 0.0; // Top left  corner
-	colors[60] = 0.3; colors[61] = 0.8; colors[62] = 0.2; // Top left corner
+	colors[60] = 0.0; colors[61] = 0.0; colors[62] = 1.0; // Top left corner
 
 	vertices[63] = 0.0; vertices[64] = 2.0; vertices[65] = 1.0; // Top left  corner
-	colors[63] = 0.1; colors[64] = 0.8; colors[65] = 0.7; // Top left corner
+	colors[63] = 0.0; colors[64] = 0.0; colors[65] = 1.0; // Top left corner
 
 	vertices[66] = 1.0; vertices[67] = 2.0; vertices[68] = 1.0; // Top left  corner
-	colors[66] = 0.7; colors[67] = 0.8; colors[68] = 0.0; // Top left corner
+	colors[66] = 0.0; colors[67] = 0.0; colors[68] = 1.0; // Top left corner
 
 	vertices[69] = 0.0; vertices[70] = 1.0; vertices[71] = 1.0; // Top left  corner
-	colors[69] = 0.5; colors[70] = 0.8; colors[71] = 0.7; // Top left corner
+	colors[69] = 0.0; colors[70] = 0.0; colors[71] = 1.0; // Top left corner
 
 	vertices[72] = 1.0; vertices[73] = 1.0; vertices[74] = 1.0; // Top left  corner
-	colors[72] = 0.0; colors[73] = 0.8; colors[74] = 0.0; // Top left corner
+	colors[72] = 0.0; colors[73] = 0.0; colors[74] = 1.0; // Top left corner
 
-	//end
-	vertices[75] = 3.0; vertices[76] = 1.0; vertices[77] = 1.0; // Top left  corner
-	colors[54] = 0.0; colors[76] = 0.4; colors[77] = 0.0; // Top left corner
+	//top
+	vertices[75] = 0.0; vertices[76] = 1.0; vertices[77] = 1.0; // Top left  corner
+	colors[54] = 0.0; colors[76] = 0.0; colors[77] = 1.0; // Top left corner
 
-	vertices[78] = 1.0; vertices[79] = 2.0; vertices[80] = 1.0; // Top left  corner
-	colors[78] = 0.0; colors[79] = 0.2; colors[80] = 0.1; // Top left corner
+	vertices[78] = 1.0; vertices[79] = 1.0; vertices[80] = 1.0; // Top left  corner
+	colors[78] = 0.0; colors[79] = 0.0; colors[80] = 1.0; // Top left corner
 
-	vertices[81] = 0.0; vertices[82] = 2.0; vertices[83] = 1.0; // Top left  corner
-	colors[81] = 0.4; colors[82] = 0.9; colors[83] = 0.9; // Top left corner
+	vertices[81] = 0.0; vertices[82] = 1.0; vertices[83] = 3.0; // Top left  corner
+	colors[81] = 0.0; colors[82] = 0.0; colors[83] = 1.0; // Top left corner
+
+	vertices[84] = 1.0; vertices[85] = 1.0; vertices[86] = 3.0; // Top left  corner
+	colors[84] = 0.0; colors[85] = 0.0; colors[86] = 1.0; // Top left corner
+
+	//bottom
+	vertices[87] = 0.0; vertices[88] = 0.0; vertices[89] = 3.0; // Top left  corner
+	colors[87] = 0.0; colors[88] = 0.0; colors[89] = 1.0; // Top left corner
+
+	vertices[90] = 1.0; vertices[91] = 0.0; vertices[92] = 3.0; // Top left  corner
+	colors[90] = 0.0; colors[91] = 0.0; colors[92] = 1.0; // Top left corner
+
+	vertices[93] = 0.0; vertices[94] = 0.0; vertices[95] = 1.0; // Top left  corner
+	colors[93] = 0.0; colors[94] = 0.0; colors[95] = 1.0; // Top left corner
+
+	vertices[96] = 1.0; vertices[97] = 0.0; vertices[98] = 1.0; // Top left  corner
+	colors[96] = 0.0; colors[97] = 0.0; colors[98] = 1.0; // Top left corner
+
+	vertices[99] = 0.0; vertices[100] = 0.0; vertices[101] = 0.0; // Top left  corner
+	colors[99] = 0.0; colors[100] = 0.0; colors[101] = 1.0; // Top left corner
+
+	vertices[102] = 3.0; vertices[102] = 0.0; vertices[103] = 1.0; // Top left  corner
+	colors[102] = 0.0; colors[102] = 0.0; colors[103] = 1.0; // Top left corner
+
+	vertices[104] = 3.0; vertices[105] = 0.0; vertices[106] = 0.0; // Top left  corner
+	colors[104] = 0.0; colors[105] = 0.0; colors[106] = 1.0; // Top left corner
 
 	
 	glGenVertexArrays(1, &vaoID[0]); // Create our Vertex Array Object
@@ -202,7 +228,7 @@ unsigned int createTriangleStripModel(void)
 
 
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[0]); // Bind our Vertex Buffer Object
-	glBufferData(GL_ARRAY_BUFFER, 100 * sizeof(GLfloat), vertices, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
+	glBufferData(GL_ARRAY_BUFFER, 110 * sizeof(GLfloat), vertices, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
 
 	glVertexAttribPointer((GLuint)0, 3, GL_FLOAT, GL_FALSE, 0, 0); // Set up our vertex attributes pointer
 	glEnableVertexAttribArray(0); // Disable our Vertex Array Object
@@ -210,7 +236,7 @@ unsigned int createTriangleStripModel(void)
 
 								  //Color
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[1]); // Bind our second Vertex Buffer Object
-	glBufferData(GL_ARRAY_BUFFER, 100 * sizeof(GLfloat), colors, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
+	glBufferData(GL_ARRAY_BUFFER, 110 * sizeof(GLfloat), colors, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
 
 	
 
@@ -236,6 +262,8 @@ void renderTriangleStripModel(void)
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 	glDrawArrays(GL_TRIANGLE_STRIP, 4, 15);
 	glDrawArrays(GL_TRIANGLE_STRIP, 19, 6);
+	glDrawArrays(GL_TRIANGLE_STRIP, 25, 4);
+	glDrawArrays(GL_TRIANGLE_STRIP, 29, 7);
 	glBindVertexArray(0);
 
 
@@ -377,7 +405,7 @@ unsigned int createMyModel(void)
 
 	// For some reason our last facet on each triangle fan isn't showing up
 	// so we'll patch it with another triangle 
-	vertices[110] = 1.0; vertices[111] = 2.0; vertices[112] = 0.0; // Top left  corner
+	vertices[110] = 10.0; vertices[111] = 2.0; vertices[112] = 0.0; // Top left  corner
 	colors[110] = 0.0; colors[111] = 1.0; colors[112] = 1.0; // Top left corner
 
 	vertices[113] = 0.0; vertices[114] = 2.0; vertices[115] = 0.0; // Top left  corner
@@ -428,9 +456,10 @@ void renderMyModel(void)
 {
 	glBindVertexArray(vaoID[1]);
 	glDrawArrays(GL_TRIANGLES, 0, 18);
+	glDrawArrays(GL_TRIANGLES, 36, 3);
 	glDrawArrays(GL_TRIANGLE_FAN, 18, 10);
-	glDrawArrays(GL_TRIANGLE_FAN, 28, 9);
-	//glDrawArrays(GL_TRIANGLES, 37, 3);
+	glDrawArrays(GL_TRIANGLE_FAN, 28, 8);
+	
 	glBindVertexArray(0);
 
 }
@@ -444,7 +473,7 @@ void renderMyModel(void)
  */
 void setupScene(void) {
     
-    createTriangleStripModel();
+    //createTriangleStripModel();
     createMyModel();
     
 }
@@ -583,13 +612,13 @@ int main(int argc, const char * argv[])
         glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, &viewMatrix[0][0]); // send the view matrix to our shader
         
         // This moves the model to the right
-        modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+        modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -2.0f, 0.0f));
         glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, &modelMatrix[0][0]); // Send our model matrix to the shader
         
         renderTriangleStripModel();
         
         // This moves the model to the left
-        modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(-5.0f, -1.0f, 0.0f));
+        modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, -1.0f, 0.0f));
         glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, &modelMatrix[0][0]); // Send our model matrix to the shader
         
         renderMyModel();
