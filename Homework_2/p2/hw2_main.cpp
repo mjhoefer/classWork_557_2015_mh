@@ -3,7 +3,7 @@
 //  OpenGL4Test
 //
 //  Created by Rafael Radkowski on 5/28/15.
-// With modifications (damage) by Michael Hoefer for ME 557 class
+// With modifications by Michael Hoefer for ME 557 class
 //  Copyright (c) 2015 -. All rights reserved.
 //
 
@@ -272,21 +272,23 @@ void renderTriangleStripModel(void)
 
 /*!
  ADD YOUR CODE TO CREATE A MODEL USING PRIMITIVES OF YOUR CHOISE TO THIS FUNCTION
+ This section still need some more work... having issues getting all the facets
+ of the triangle fan to appear. 
  */
 unsigned int createMyModel(void)
 {
 
-	float* vertices = new float[234];
-	float *colors = new float[234];
+	float* vertices = new float[200];
+	float *colors = new float[200];
 	//first triangle
 	vertices[0] = 0.0; vertices[1] = 0.0; vertices[2] = 0.0; // Top left corner
-	colors[0] = 1.0; colors[1] = 0.0; colors[2] = 0.0; // Top left corner
+	colors[0] = 0.0; colors[1] = 0.0; colors[2] = 1.0; // Top left corner
 
 	vertices[3] = 0.0; vertices[4] = 2.0; vertices[5] = 0.0; // Bottom left corner
-	colors[3] = 1.0; colors[4] = 1.0; colors[5] = 1.0; // Bottom left corner
+	colors[3] = 0.0; colors[4] = 0.0; colors[5] = 1.0; // Bottom left corner
 
 	vertices[6] = 0.0; vertices[7] = 0.0; vertices[8] = 1.0; // Top Right corner
-	colors[6] = 0.0; colors[7] = 1.0; colors[8] = 0.0; // Top Right corner
+	colors[6] = 0.0; colors[7] = 0.0; colors[8] = 1.0; // Top Right corner
 	//end first triangle
 
 	//second tri
@@ -294,125 +296,135 @@ unsigned int createMyModel(void)
 	colors[9] = 0.0; colors[10] = 0.0; colors[11] = 1.0; // Bottom right corner
 										 
 	vertices[12] = 0.0; vertices[13] = 2.0; vertices[14] = 1.0; // Top right corner
-	colors[12] = 1.0; colors[13] = 1.0; colors[14] = 0.0; // Top right corner
+	colors[12] = 0.0; colors[13] = 0.0; colors[14] = 1.0; // Top right corner
 
 	vertices[15] = 0.0; vertices[16] = 2.0; vertices[17] = 0.0; // Bottom right corner
-	colors[15] = 1.0; colors[16] = 0.0; colors[17] = 1.0; // Bottom right corner
+	colors[15] = 0.0; colors[16] = 0.0; colors[17] = 1.0; // Bottom right corner
 	// end second tri
 
 	// third triangle
 	vertices[18] = 0.0; vertices[19] = 0.0; vertices[20] = 1.0; // Top left  corner
-	colors[18] = 0.0; colors[19] = 0.5; colors[20] = 0.5; // Top left corner
+	colors[18] = 0.0; colors[19] = 0.0; colors[20] = 1.0; // Top left corner
 
 	vertices[21] = 0.0; vertices[22] = 1.0; vertices[23] = 1.0; // Bottom left  corner
-	colors[21] = 0.5; colors[22] = 0.5; colors[23] = 0.0; // Bottom left corner
+	colors[21] = 0.0; colors[22] = 0.0; colors[23] = 1.0; // Bottom left corner
 										
 	vertices[24] = 0.0; vertices[25] = 0.0; vertices[26] = 3.0; // Top left  corner
-	colors[24] = 1.0; colors[25] = 0.0; colors[26] = 0.0; // Top left corner
+	colors[24] = 0.0; colors[25] = 0.0; colors[26] = 1.0; // Top left corner
 	// end third tri
 
 	//fourth tri
 	vertices[27] = 0.0; vertices[28] = 1.0; vertices[29] = 1.0; // Bottom left  corner
-	colors[27] = 0.5; colors[28] = 0.5; colors[29] = 0.0; // Bottom left corner
+	colors[27] = 0.0; colors[28] = 0.0; colors[29] = 1.0; // Bottom left corner
 
 	vertices[30] = 0.0; vertices[31] = 0.0; vertices[32] = 3.0; // Top left  corner
-	colors[30] = 1.0; colors[31] = 0.0; colors[32] = 0.0; // Top left corner
+	colors[30] = 0.0; colors[31] = 0.0; colors[32] = 1.0; // Top left corner
 
 	vertices[33] = 0.0; vertices[34] = 1.0; vertices[35] = 3.0; // Bottom left  corner
-	colors[33] = 1.0; colors[34] = 1.0; colors[35] = 0.0; // Bottom left corner
+	colors[33] = 0.0; colors[34] = 0.0; colors[35] = 1.0; // Bottom left corner
 	//end fourth tri
 	
 
 	//fifth triangle
 	vertices[36] = 0.0; vertices[37] = 0.0; vertices[38] = 3.0; // Top left  corner
-	colors[36] = 0.0; colors[37] = 1.0; colors[38] = 0.0; // Top left corner
+	colors[36] = 0.0; colors[37] = 0.0; colors[38] = 1.0; // Top left corner
 
 	vertices[39] = 0.0; vertices[40] = 1.0; vertices[41] = 3.0; // Bottom left  corner
-	colors[39] = 0.0; colors[40] = 0.3; colors[41] = 0.0; // Bottom left corner
+	colors[39] = 0.0; colors[40] = 0.0; colors[41] = 1.0; // Bottom left corner
 
 	vertices[42] = 1.0; vertices[43] = 1.0; vertices[44] = 3.0; // Top left  corner
-	colors[42] = 0.0; colors[43] = 0.8; colors[44] = 0.0; // Top left corner
+	colors[42] = 0.0; colors[43] = 0.0; colors[44] = 1.0; // Top left corner
 
 	//6th
 	vertices[45] = 0.0; vertices[46] = 0.0; vertices[47] = 3.0; // Top left  corner
-	colors[45] = 0.0; colors[46] = 0.8; colors[47] = 0.0; // Top left corner
+	colors[45] = 0.0; colors[46] = 0.0; colors[47] = 1.0; // Top left corner
 
 	vertices[48] = 1.0; vertices[49] = 1.0; vertices[50] = 3.0; // Top left  corner
-	colors[48] = 0.0; colors[49] = 0.8; colors[50] = 0.0; // Top left corner
+	colors[48] = 0.0; colors[49] = 0.0; colors[50] = 1.0; // Top left corner
 
 	vertices[51] = 1.0; vertices[52] = 0.0; vertices[53] = 3.0; // Top left  corner
-	colors[51] = 0.0; colors[52] = 0.8; colors[53] = 0.0; // Top left corner
+	colors[51] = 0.0; colors[52] = 0.0; colors[53] = 1.0; // Top left corner
 	
 	//let's try a triangle fan
 	vertices[54] = 1.0; vertices[55] = 1.0; vertices[56] = 1.0; // Top left  corner
-	colors[54] = 0.0; colors[55] = 0.8; colors[56] = 0.0; // Top left corner
+	colors[54] = 0.0; colors[55] = 0.0; colors[56] = 1.0; // Top left corner
 
 	vertices[57] = 0.0; vertices[58] = 1.0; vertices[59] = 1.0; // Top left  corner
-	colors[57] = 0.0; colors[58] = 0.8; colors[59] = 0.5; // Top left corner
+	colors[57] = 0.0; colors[58] = 0.0; colors[59] = 1.0; // Top left corner
 
 	vertices[60] = 0.0; vertices[61] = 1.0; vertices[62] = 3.0; // Top left  corner
-	colors[60] = 0.3; colors[61] = 0.8; colors[62] = 0.2; // Top left corner
+	colors[60] = 0.0; colors[61] = 0.0; colors[62] = 1.0; // Top left corner
 
 	vertices[63] = 1.0; vertices[64] = 1.0; vertices[65] = 3.0; // Top left  corner
-	colors[63] = 0.1; colors[64] = 0.8; colors[65] = 0.7; // Top left corner
+	colors[63] = 0.0; colors[64] = 0.0; colors[65] = 1.0; // Top left corner
 
 	vertices[66] = 1.0; vertices[67] = 0.0; vertices[68] = 3.0; // Top left  corner
-	colors[66] = 0.7; colors[67] = 0.8; colors[68] = 0.0; // Top left corner
+	colors[66] = 0.0; colors[67] = 0.0; colors[68] = 1.0; // Top left corner
 
 	vertices[69] = 1.0; vertices[70] = 0.0; vertices[71] = 1.0; // Top left  corner
-	colors[69] = 0.5; colors[70] = 0.8; colors[71] = 0.7; // Top left corner
+	colors[69] = 0.0; colors[70] = 0.0; colors[71] = 1.0; // Top left corner
 
 	vertices[72] = 3.0; vertices[73] = 0.0; vertices[74] = 1.0; // Top left  corner
-	colors[72] = 0.0; colors[73] = 0.8; colors[74] = 0.0; // Top left corner
+	colors[72] = 0.0; colors[73] = 0.0; colors[74] = 1.0; // Top left corner
 
 	vertices[75] = 3.0; vertices[76] = 1.0; vertices[77] = 1.0; // Top left  corner
-	colors[54] = 0.0; colors[76] = 0.4; colors[77] = 0.0; // Top left corner
+	colors[54] = 0.0; colors[76] = 0.0; colors[77] = 1.0; // Top left corner
 
 	vertices[78] = 1.0; vertices[79] = 2.0; vertices[80] = 1.0; // Top left  corner
-	colors[78] = 0.0; colors[79] = 0.2; colors[80] = 0.1; // Top left corner
+	colors[78] = 0.0; colors[79] = 0.0; colors[80] = 1.0; // Top left corner
 
 	vertices[81] = 0.0; vertices[82] = 2.0; vertices[83] = 1.0; // Top left  corner
-	colors[81] = 0.4; colors[82] = 0.9; colors[83] = 0.9; // Top left corner
+	colors[81] = 0.0; colors[82] = 0.0; colors[83] = 1.0; // Top left corner
 	//end triangle fan
 
-	//triangle fans worked well, another one for the top
+	// another one for the top
 	vertices[84] = 1.0; vertices[85] = 2.0; vertices[86] = 0.0; // Top left  corner
-	colors[84] = 0.0; colors[85] = 0.8; colors[86] = 0.0; // Top left corner
+	colors[84] = 0.0; colors[85] = 0.0; colors[86] = 1.0; // Top left corner
 
 	vertices[87] = 0.0; vertices[88] = 2.0; vertices[89] = 0.0; // Top left  corner
-	colors[87] = 0.0; colors[88] = 0.8; colors[89] = 0.0; // Top left corner
+	colors[87] = 0.0; colors[88] = 0.0; colors[89] = 1.0; // Top left corner
 
 	vertices[90] = 0.0; vertices[91] = 2.0; vertices[92] = 1.0; // Top left  corner
-	colors[90] = 0.0; colors[91] = 0.8; colors[92] = 0.0; // Top left corner
+	colors[90] = 0.0; colors[91] = 0.0; colors[92] = 1.0; // Top left corner
 
 	vertices[93] = 1.0; vertices[94] = 2.0; vertices[95] = 1.0; // Top left  corner
-	colors[93] = 0.0; colors[94] = 0.8; colors[95] = 0.0; // Top left corner
+	colors[93] = 0.0; colors[94] = 0.0; colors[95] = 1.0; // Top left corner
 
 	vertices[96] = 3.0; vertices[97] = 1.0; vertices[98] = 1.0; // Top left  corner
-	colors[96] = 0.0; colors[97] = 0.8; colors[98] = 0.0; // Top left corner
+	colors[96] = 0.0; colors[97] = 0.0; colors[98] = 1.0; // Top left corner
 
 	vertices[99] = 3.0; vertices[100] = 1.0; vertices[101] = 0.0; // Top left  corner
-	colors[99] = 0.0; colors[100] = 0.8; colors[101] = 0.0; // Top left corner
+	colors[99] = 0.0; colors[100] = 0.0; colors[101] = 1.0; // Top left corner
 
 	vertices[102] = 3.0; vertices[102] = 0.0; vertices[103] = 0.0; // Top left  corner
-	colors[102] = 0.0; colors[102] = 0.8; colors[103] = 0.0; // Top left corner
+	colors[102] = 0.0; colors[102] = 0.0; colors[103] = 1.0; // Top left corner
 
 	vertices[104] = 1.0; vertices[105] = 0.0; vertices[106] = 0.0; // Top left  corner
-	colors[104] = 0.0; colors[105] = 0.8; colors[106] = 0.0; // Top left corner
+	colors[104] = 0.0; colors[105] = 0.0; colors[106] = 1.0; // Top left corner
 
 	vertices[107] = 0.0; vertices[108] = 0.0; vertices[109] = 0.0; // Top left  corner
-	colors[107] = 0.0; colors[108] = 0.8; colors[109] = 0.0; // Top left corner
+	colors[107] = 0.0; colors[108] = 0.0; colors[109] = 1.0; // Top left corner
 
 	// For some reason our last facet on each triangle fan isn't showing up
 	// so we'll patch it with another triangle 
-	vertices[110] = 10.0; vertices[111] = 2.0; vertices[112] = 0.0; // Top left  corner
-	colors[110] = 0.0; colors[111] = 1.0; colors[112] = 1.0; // Top left corner
+	vertices[110] = 1.0; vertices[111] = 2.0; vertices[112] = 1.0; // Top left  corner
+	colors[110] = 0.0; colors[111] = 0.0; colors[112] = 1.0; // Top left corner
+
+	vertices[113] = 0.0; vertices[114] = 1.0; vertices[115] = 1.0; // Top left  corner
+	colors[113] = 0.0; colors[114] = 0.0; colors[115] = 1.0; // Top left corner
+	
+	vertices[116] = 0.0; vertices[117] = 2.0; vertices[118] = 1.0; // Top left  corner
+	colors[116] = 0.0; colors[117] = 0.0; colors[118] = 1.0; // Top left corner
+
+	//back side hole
+	vertices[110] = 1.0; vertices[111] = 2.0; vertices[112] = 0.0; // Top left  corner
+	colors[110] = 0.0; colors[111] = 0.0; colors[112] = 1.0; // Top left corner
 
 	vertices[113] = 0.0; vertices[114] = 2.0; vertices[115] = 0.0; // Top left  corner
-	colors[113] = 0.0; colors[114] = 1.0; colors[115] = 1.0; // Top left corner
-	
+	colors[113] = 0.0; colors[114] = 0.0; colors[115] = 1.0; // Top left corner
+
 	vertices[116] = 0.0; vertices[117] = 0.0; vertices[118] = 0.0; // Top left  corner
-	colors[116] = 0.0; colors[117] = 1.0; colors[118] = 1.0; // Top left corner
+	colors[116] = 0.0; colors[117] = 0.0; colors[118] = 1.0; // Top left corner
 
 
 	glGenVertexArrays(1, &vaoID[1]); // Create our Vertex Array Object
@@ -423,7 +435,7 @@ unsigned int createMyModel(void)
 
 
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[2]); // Bind our Vertex Buffer Object
-	glBufferData(GL_ARRAY_BUFFER, 234 * sizeof(GLfloat), vertices, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
+	glBufferData(GL_ARRAY_BUFFER, 118 * sizeof(GLfloat), vertices, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
 
 	glVertexAttribPointer((GLuint)0, 3, GL_FLOAT, GL_FALSE, 0, 0); // Set up our vertex attributes pointer
 	glEnableVertexAttribArray(0); // Disable our Vertex Array Object
@@ -431,7 +443,7 @@ unsigned int createMyModel(void)
 
 								  //Color
 	glBindBuffer(GL_ARRAY_BUFFER, vboID[3]); // Bind our second Vertex Buffer Object
-	glBufferData(GL_ARRAY_BUFFER, 234 * sizeof(GLfloat), colors, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
+	glBufferData(GL_ARRAY_BUFFER, 118 * sizeof(GLfloat), colors, GL_STATIC_DRAW); // Set the size and data of our VBO and set it to STATIC_DRAW
 
 
 
@@ -456,9 +468,10 @@ void renderMyModel(void)
 {
 	glBindVertexArray(vaoID[1]);
 	glDrawArrays(GL_TRIANGLES, 0, 18);
-	glDrawArrays(GL_TRIANGLES, 36, 3);
+	
 	glDrawArrays(GL_TRIANGLE_FAN, 18, 10);
-	glDrawArrays(GL_TRIANGLE_FAN, 28, 8);
+	glDrawArrays(GL_TRIANGLE_FAN, 28, 9);
+	glDrawArrays(GL_TRIANGLES, 37, 6);
 	
 	glBindVertexArray(0);
 
