@@ -5,7 +5,6 @@
 //	10 / 8 / 2015
 //	By: Michael Hoefer, Anupu Prudhivi, and Hsin Miao Lee
 //
-
 // The vertex buffer input                                    
 in vec3 in_Color; 
 in vec3 in_Position; 
@@ -26,6 +25,7 @@ uniform vec4 light_position;
 
 // New parameters for the spotlight
 uniform float cone_angle;
+uniform float cone_angle2;
 uniform vec3 cone_direction;
 
 // The intensity values for the reflection equations
@@ -41,7 +41,12 @@ uniform float attenuationCoefficient;
 // The output color
 out vec3 pass_Color;                                            
                                                                  
-                                                             
+             
+float smoothstep(float edge0, float edge1, float x)
+{
+	x = clamp((x - edge0)/(edge1 - edge0), 0.0, 1.0);
+	return x*x*(3 - 2*x);
+}			 
                                                                                                                                
 void main(void)                                                 
 {                                                               
@@ -86,46 +91,30 @@ void main(void)
     //    To simplify our understanding, we use the degrees
     float light_to_surface_angle = degrees(acos(dot(ray_direction, cone_direction_norm))) ; 
     
+	
+	//3.5 calulate smooth spotlight
+	// cone_angle = edge0, cone_angle2 = edge1
+	if(light_to_surface_angle > cone_angle && light_to_surface_angle < cone_angle2){
+  			
+			attenuation = ((cone_angle2 - light_to_surface_angle)/(cone_angle2 - cone_angle))*attenuation;
+			//attenuation = clamp((attenuation - cone_angle)/(cone_angle - cone_angle2), 0.0, 1.0);
+			//attenuation = attenuation*attenuation*(3 - 2*attenuation);
+		
+	}
+	
     // 4. Last, we compare the angle with the current direction and 
     //    reduce the attenuation to 0.0 if the light is outside the angle. 
-	if(light_to_surface_angle > cone_angle){
+	if(light_to_surface_angle > cone_angle2){
   		attenuation = 0.0;
 	}
 	
 	
-	
-	
 	// Calculate the linear color
-	vec3 SpotLightlinearColor = out_ambient_color  + attenuation * ( out_diffuse_color + out_specular_color);  
-	
-	//////////////////////////////////////////////////////////////////////////////////////////////        
-    // Directional light
-    //
-	if(light_position.w == 0.0) {
- 	    // this is a directional light.
-
-		// 1. the values that we store as light position is our light direction.
-  		vec3 light_direction = normalize(light_position.xyz);
-  		
-  		// 2. We check the angle of our light to make sure that only parts towards our light get illuminated
-  		float light_to_surface_angle = dot(light_direction, transformedNormal.xyz);
-  		
-  		// 3. Check the angle, if the angle is smaller than 0.0, the surface is not directed towards the light. 
-  		if(light_to_surface_angle > 0.0)attenuation = 1.0;
-  		else attenuation = 0.0;	
-	} 
-	
-	
-	// Calculate the linear color
-	vec3 DirectlinearColor = attenuation * ( out_diffuse_color); //+ out_specular_color);  
-		
-	vec3 combinedColor = SpotLightlinearColor + DirectlinearColor;
-	
-	
+	vec3 linearColor = out_ambient_color  + attenuation * ( out_diffuse_color + out_specular_color);  
 	
 	// Gamma correction	
 	vec3 gamma = vec3(1.0/2.2);
-	vec3 finalColor = pow(combinedColor, gamma);
+	vec3 finalColor = pow(linearColor, gamma);
 	
 	// Pass the color 
 	pass_Color =  finalColor;
