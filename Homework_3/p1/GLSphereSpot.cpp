@@ -3,7 +3,10 @@
 //  HCI557_Spotlight
 //
 //  Created by Rafael Radkowski on 9/26/15.
-//
+//  Changes made for class
+//	ME 557
+//	10 / 8 / 2015
+//	By: Michael Hoefer, Anupu Prudhivi, and Hsin Miao Lee
 //
 
 #include "GLSphereSpot.h"
@@ -58,7 +61,7 @@ void GLSphereSpot::initShader(void)
 {
 #ifdef _WIN32
     // This loads the shader program from a file
-    _program = LoadAndCreateShaderProgram("../../data/shaders/spotlight.vs", "../../data/shaders/spotlight.fs");
+    _program = LoadAndCreateShaderProgram("../../data/shaders/spotlightDiffuse.vs", "../../data/shaders/spotlight.fs");
 #else
 	// This loads the shader program from a file
     _program = LoadAndCreateShaderProgram("../../data/shaders/spotlight.vs", "../../data/shaders/spotlight.fs");
@@ -95,9 +98,9 @@ void GLSphereSpot::initShader(void)
     
     ///////////////////////////////////////////////////////////////////////////////////////////////
     // Material
-    _material._diffuse_material = glm::vec3(1.0, 0.5, 0.0);
-    _material._ambient_material = glm::vec3(1.0, 0.5, 0.0);
-    _material._specular_material = glm::vec3(1.0, 1.0, 1.0);
+    _material._diffuse_material = glm::vec3(0.0, 0.1, 0.0);
+    _material._ambient_material = glm::vec3(0.0, 0.1, 0.0);
+    _material._specular_material = glm::vec3(0.0, 0.0, 1.0);
     _material._shininess = 1.0;
     
     
@@ -114,16 +117,16 @@ void GLSphereSpot::initShader(void)
     glUniform1f(_material._shininessIdx, _material._shininess);
     
     ///////////////////////////////////////////////////////////////////////////////////////////////
-    // Light
+    // spotLight
     
     // define the position of the light and send the light position to your shader program
-    _light_source1._lightPos = glm::vec4(20.0,20.0,0.0, 1.0);
-    _light_source1._ambient_intensity = 0.3;
+    _light_source1._lightPos = glm::vec4(15.0,15.0,2.0, 1.0);
+    _light_source1._ambient_intensity = 0.0;
     _light_source1._specular_intensity = 5.0;
-    _light_source1._diffuse_intensity = 8.0;
+    _light_source1._diffuse_intensity = 0.0;
     _light_source1._attenuation_coeff = 0.02;
     
-    _light_source1._cone_angle = 12.0; // in degree
+    _light_source1._cone_angle = 15.0; // in degree
     _light_source1._cone_direction = glm::vec3(-1.0, -1.0, 0.0); // this must be aligned with the object and light position.
     
     // Read all the index values from the shader program
@@ -144,7 +147,34 @@ void GLSphereSpot::initShader(void)
     
     glUniform1f(_light_source1._cone_angleIdx, _light_source1._cone_angle);
     glUniform3fv(_light_source1._cone_directionIdx, 1, &_light_source1._cone_direction[0]);
+	
+	//start of diffuse light
+	///////////////////////////////////////////////////////////////////////////////////////////////
+	// Diffuse Light
 
+	// define the position of the light and send the light position to your shader program
+	_light_source2._lightPos = glm::vec4(10.0, 10.0, 0.0, 0.0);
+	_light_source2._ambient_intensity = 0.0;
+	_light_source2._specular_intensity = 0.0;
+	_light_source2._diffuse_intensity = 8.0;
+	_light_source2._attenuation_coeff = 0.02;
+
+
+
+	// Read all the index values from the shader program
+	_light_source2._ambientIdx = glGetUniformLocation(_program, "ambient_intensity2");
+	_light_source2._diffuseIdx = glGetUniformLocation(_program, "diffuse_intensity2");
+	_light_source2._specularIdx = glGetUniformLocation(_program, "specular_intensity2");
+	_light_source2._attenuation_coeffIdx = glGetUniformLocation(_program, "attenuationCoefficient2");
+	_light_source2._lightPosIdx = glGetUniformLocation(_program, "light_position2");
+
+
+	// Send the light information to your shader program
+	glUniform1f(_light_source2._ambientIdx, _light_source2._ambient_intensity);
+	glUniform1f(_light_source2._diffuseIdx, _light_source2._diffuse_intensity);
+	glUniform1f(_light_source2._specularIdx, _light_source2._specular_intensity);
+	glUniform1f(_light_source2._attenuation_coeffIdx, _light_source2._attenuation_coeff);
+	glUniform4fv(_light_source2._lightPosIdx, 1, &_light_source2._lightPos[0]);
     
     glUseProgram(0);
 

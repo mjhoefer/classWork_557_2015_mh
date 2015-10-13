@@ -35,8 +35,13 @@ uniform float specular_intensity;
 uniform float shininess;    
 uniform float attenuationCoefficient;                                    
                                               
-
-
+//for second light source
+// Position of the light source
+uniform vec4 light_position2;  
+uniform float diffuse_intensity2;                                          
+uniform float ambient_intensity2;                                        
+uniform float specular_intensity2;                                       
+uniform float attenuationCoefficient2;      
 
 // The output color
 out vec3 pass_Color;                                            
@@ -101,23 +106,49 @@ void main(void)
 	//////////////////////////////////////////////////////////////////////////////////////////////        
     // Directional light
     //
-	if(light_position.w == 0.0) {
+	
+	vec4 surface_to_light2 =   normalize( light_position2 -  surfacePostion );                      
+                                                                                                            
+    // Diffuse color                                                                                          
+    float diffuse_coefficient2 = max( dot(transformedNormal, surface_to_light), 0.0);                         
+    vec3 out_diffuse_color2 = diffuse_color  * diffuse_coefficient2 * diffuse_intensity2;                        
+                                                                                                              
+    // Ambient color                                                                                         
+    vec3 out_ambient_color2 = vec3(ambient_color) * ambient_intensity2;                                        
+                                                                                                             
+    // Specular color                                                                                        
+    vec3 incidenceVector2 = -surface_to_light2.xyz;                                                             
+    vec3 reflectionVector2 = reflect(incidenceVector2, transformedNormal.xyz);                                   
+    cameraPosition = vec3( -viewMatrixBox[3][0], -viewMatrixBox[3][1], -viewMatrixBox[3][2]);            
+    surfaceToCamera = normalize(cameraPosition - surfacePostion.xyz);                                   
+    float cosAngle2 = max( dot(surfaceToCamera, reflectionVector2), 0.0);                                       
+    float specular_coefficient2 = pow(cosAngle2, shininess);                                                     
+    vec3 out_specular_color2 = specular_color * specular_coefficient2 * specular_intensity2;                    
+  
+	
+	//attenuation
+    float distanceToLight2 = length(light_position2.xyz - surfacePostion.xyz);
+    float attenuation2 = 1.0 / (1.0 + attenuationCoefficient2 * pow(distanceToLight2, 2));
+	if(light_position2.w == 0.0) {
  	    // this is a directional light.
 
 		// 1. the values that we store as light position is our light direction.
-  		vec3 light_direction = normalize(light_position.xyz);
+  		vec3 light_direction2 = normalize(light_position2.xyz);
   		
   		// 2. We check the angle of our light to make sure that only parts towards our light get illuminated
-  		float light_to_surface_angle = dot(light_direction, transformedNormal.xyz);
+  		float light_to_surface_angle2 = dot(light_direction2, transformedNormal.xyz);
   		
   		// 3. Check the angle, if the angle is smaller than 0.0, the surface is not directed towards the light. 
-  		if(light_to_surface_angle > 0.0)attenuation = 1.0;
-  		else attenuation = 0.0;	
+  		if(light_to_surface_angle2 > 0.0)
+		{
+			attenuation2 = 1.0;
+  		} else attenuation2 = 0.0;	
+		
 	} 
 	
 	
 	// Calculate the linear color
-	vec3 DirectlinearColor = attenuation * ( out_diffuse_color); //+ out_specular_color);  
+	vec3 DirectlinearColor = attenuation2 * ( out_diffuse_color2) + out_specular_color2;  
 		
 	vec3 combinedColor = SpotLightlinearColor + DirectlinearColor;
 	

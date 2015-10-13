@@ -3,7 +3,10 @@
 //  HCI557_Spotlight
 //
 //  Created by Rafael Radkowski on 9/26/15.
-//
+//  Changes made for class
+//	ME 557
+//	10 / 8 / 2015
+//	By: Michael Hoefer, Anupu Prudhivi, and Hsin Miao Lee
 //
 #pragma once
 
@@ -56,6 +59,8 @@ protected:
     // The spotlight object
     GLSpotLightSource           _light_source1;
     
+	//the diffuse light object
+	GLLightSource _light_source2;
 
 
 };
