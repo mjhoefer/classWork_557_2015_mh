@@ -1,7 +1,7 @@
 #version 410 core                                                 
 
 //
-//   Changes made for HW 4 by Yuanfen Chen, Michael Hoefer, and Marcus Naik
+//   Changes made for HW 4 by Yuanfen Chen, Michael Hoefer, and Hsiang Sing Naik
 //
 
 uniform sampler2D texture_background; //this is the texture

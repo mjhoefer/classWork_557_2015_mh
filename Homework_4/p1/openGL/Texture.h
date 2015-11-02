@@ -5,6 +5,12 @@
 //  Created by Rafael Radkowski on 10/10/15.
 //
 //
+
+//
+//   Changes made for HW 4 by Yuanfen Chen, Michael Hoefer, and Hsiang Sing Naik
+//
+
+
 #pragma once
 
 // stl include

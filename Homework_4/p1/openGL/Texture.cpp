@@ -6,6 +6,10 @@
 //
 //
 
+//
+//   Changes made for HW 4 by Yuanfen Chen, Michael Hoefer, and Hsiang Sing Naik
+//
+
 #include "Texture.h"
 
 #ifdef WIN32

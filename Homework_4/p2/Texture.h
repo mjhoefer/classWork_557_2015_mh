@@ -6,7 +6,7 @@
 //
 //
 
-//   Changes made for HW 4 by Yuanfen Chen, Michael Hoefer, and Marcus Naik
+//   Changes made for HW 4 by Yuanfen Chen, Michael Hoefer, and Hsiang Sing Naik
 //
 //
 #pragma once

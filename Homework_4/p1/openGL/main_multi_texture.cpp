@@ -5,6 +5,11 @@
 //  Created by Rafael Radkowski on 5/28/15.
 //  Copyright (c) 2015 -. All rights reserved.
 //
+//
+//   Changes made for HW 4 by Yuanfen Chen, Michael Hoefer, and Hsiang Sing Naik
+//
+
+
 
 // stl include
 #include <iostream>
