@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6DA90B0B-59CA-4EF4-A493-7DDA2575CE5E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>openGL</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Study\Graduate\ME 557\dependence\glew-1.13.0\include;D:\Study\Graduate\ME 557\dependence\glfw-3.1.1\include;D:\Study\Graduate\ME 557\dependence\glm;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Study\Graduate\ME 557\dependence\glew-1.13.0\lib\Release\Win32;D:\Study\Graduate\ME 557\dependence\glfw-3.1.1\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Box3D.cpp" />
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="controls.cpp" />
+    <ClCompile Include="CoordSystem.cpp" />
+    <ClCompile Include="GLAppearance.cpp" />
+    <ClCompile Include="GLColoredBox.cpp" />
+    <ClCompile Include="GLDiamond.cpp" />
+    <ClCompile Include="GLObject.cpp" />
+    <ClCompile Include="GLObjectObj.cpp" />
+    <ClCompile Include="GLSphere.cpp" />
+    <ClCompile Include="HCI557Common.cpp" />
+    <ClCompile Include="HCI557Datatypes.cpp" />
+    <ClCompile Include="main_Pacman game.cpp" />
+    <ClCompile Include="ModelObj.cpp" />
+    <ClCompile Include="Plane3D.cpp" />
+    <ClCompile Include="RayIntersectionTest.cpp" />
+    <ClCompile Include="Shaders.cpp" />
+    <ClCompile Include="Sphere3D.cpp" />
+    <ClCompile Include="SphereInt3D.cpp" />
+    <ClCompile Include="Texture1.cpp" />
+    <ClCompile Include="trackball.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Box3D.h" />
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="controls.h" />
+    <ClInclude Include="CoordSystem.h" />
+    <ClInclude Include="GLAppearance.h" />
+    <ClInclude Include="GLAppearanceBase.h" />
+    <ClInclude Include="GLColoredBox.h" />
+    <ClInclude Include="GLDiamond.h" />
+    <ClInclude Include="GLObject.h" />
+    <ClInclude Include="GLObjectObj.h" />
+    <ClInclude Include="GLObjects3D.h" />
+    <ClInclude Include="GLSphere.h" />
+    <ClInclude Include="HCI557Common.h" />
+    <ClInclude Include="HCI557Datatypes.h" />
+    <ClInclude Include="ModelObj.h" />
+    <ClInclude Include="Plane3D.h" />
+    <ClInclude Include="RayIntersectionTest.h" />
+    <ClInclude Include="Shaders.h" />
+    <ClInclude Include="Sphere3D.h" />
+    <ClInclude Include="SphereInt3D.h" />
+    <ClInclude Include="Texture1.h" />
+    <ClInclude Include="trackball.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
